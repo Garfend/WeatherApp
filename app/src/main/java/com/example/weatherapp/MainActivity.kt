@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             val selectedClothAdapter = when (currentCode) {
                 in 0..2100 -> {
                     if (PrefsUtil.clothe == 1) {
-                        ClotheAdpt(dataSource.coolWeatherCloth)
+                        ClotheAdpt(dataSource.sunnyshirt)
                     } else {
                         PrefsUtil.clothe = 1
                         ClotheAdpt(dataSource.sunnyCloth)
@@ -93,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         updateRecycler(currentCode, currentDate)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateUI(temp: Double,
                          hum:Double,
                          win:Double,
