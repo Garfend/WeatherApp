@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView_loc_temp"
         tools:ignore="SpeakableTextPresentCheck"
-        tools:itemCount="1" />
+        tools:itemCount="3" />
 
 
     <TextView

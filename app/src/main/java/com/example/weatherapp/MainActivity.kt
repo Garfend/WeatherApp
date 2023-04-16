@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         makeRequestUsingOKHttp()
     }
 
+
     private fun prefsUtils(){
         PrefsUtil.initPrefsUtil(this)
     }
@@ -52,45 +53,48 @@ class MainActivity : AppCompatActivity() {
         binding.rainImageLargeCard.adapter = selectedWindAdpt
     }
 
-    private fun updateRecycler(currentCode: Int,currentDate:String) {
-        if (currentDate == date) {
-            val selectedClothAdapter = when (currentCode) {
-                in 0..2100 -> {
-                    if (PrefsUtil.clothe == 1) {
-                        ClotheAdpt(dataSource.sunnyshirt)
-                    } else {
-                        PrefsUtil.clothe = 1
-                        ClotheAdpt(dataSource.sunnyCloth)
+    private fun updateRecycler(currentCode: Int,
+                               temperature: Double,
+                               currentDay:String) {
+         if (currentDay == PrefsUtil.date) {
+         return
+         }
+             val selectedClothAdapter = if (currentCode >= 4000) {
+                when (currentCode) {
+                    in 4000..4201 -> {
+                        ClotheAdpt(dataSource.rainClothe.random() as List<IdImage>)
+                    }
+                    else -> {
+                        ClotheAdpt(dataSource.rainClothe.random() as List<IdImage>)
                     }
                 }
-                in 4000..4201 -> {
-                    if (PrefsUtil.clothe == 2) {
-                        ClotheAdpt(dataSource.coolWeatherCloth)
-                    } else {
-                        PrefsUtil.clothe = 2
-                        ClotheAdpt(dataSource.rainCoats)
+            } else {
+                when (temperature) {
+                    in 10.0..35.0 -> {
+                        ClotheAdpt(
+                            dataSource.winterClothe.random() as List<IdImage>
+                        )
                     }
-                }
-                else -> {
-                    if (PrefsUtil.clothe == 3) {
-                        ClotheAdpt(dataSource.coolWeatherCloth)
-                    } else {
-                        PrefsUtil.clothe = 3
-                        ClotheAdpt(dataSource.classicJacket)
+                    in 35.0..40.0 -> {
+                        ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
+                    }
+                    else -> {
+                        ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
                     }
                 }
             }
-            binding.clothes.adapter = selectedClothAdapter
-        }
+
+        binding.clothes.adapter = selectedClothAdapter
     }
 
     fun getCurrentDate(): String = SimpleDateFormat("dd MMM", Locale.getDefault()).format(Date())
+    fun getCurrentDay(): String = SimpleDateFormat("dd", Locale.getDefault()).format(Date())
     fun getCurrentTime(): String = SimpleDateFormat("hh:mm a", Locale.getDefault()).format(Date())
 
-    private fun updateRecyclerUI(currentCode: Int, currentDate: String)
+    private fun updateRecyclerUI(currentCode: Int,tempreture:Double, currentDate: String)
     {
         weatherCondition(currentCode)
-        updateRecycler(currentCode, currentDate)
+        updateRecycler(currentCode,tempreture ,currentDate)
     }
 
     @SuppressLint("SetTextI18n")
@@ -118,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             .addQueryParameter("fields","temperature,humidity,windSpeed,cloudCover,weatherCode")
             .addQueryParameter("timesteps","current")
             .addQueryParameter("units","metric")
-            .addQueryParameter("apikey","jmYQASoTkp4PBlLLbQ9E3AhJREunMSe2")
+            .addQueryParameter("apikey","QioSZUu3rQ7xP0QIrsWTIIdrvuRveGoJ")
             .build()
         val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback{
@@ -136,11 +140,12 @@ class MainActivity : AppCompatActivity() {
                     val wCode = result.getWeatherCode().toString()
                     val date = getCurrentDate()
                     val time = getCurrentTime()
+                    val day = getCurrentDay()
 
                     runOnUiThread{
-                        updateUI(temp,hum, win ,clou, time, date)
-                        updateRecyclerUI(wCode.toInt(), date)
-                        PrefsUtil.date = date
+                        updateUI(temp , hum, win ,clou, time, date)
+                        updateRecyclerUI(wCode.toInt(), temp , day)
+                        PrefsUtil.date = day
                     }
                 }
             }
@@ -150,8 +155,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-
-
-
-
