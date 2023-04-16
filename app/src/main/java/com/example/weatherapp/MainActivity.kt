@@ -57,34 +57,35 @@ class MainActivity : AppCompatActivity() {
                                temperature: Double,
                                currentDay:String) {
          if (currentDay == PrefsUtil.date) {
-         return
-         }
-             val selectedClothAdapter = if (currentCode >= 4000) {
-                when (currentCode) {
-                    in 4000..4201 -> {
-                        ClotheAdpt(dataSource.rainClothe.random() as List<IdImage>)
-                    }
-                    else -> {
-                        ClotheAdpt(dataSource.rainClothe.random() as List<IdImage>)
-                    }
-                }
-            } else {
-                when (temperature) {
-                    in 10.0..35.0 -> {
-                        ClotheAdpt(
-                            dataSource.winterClothe.random() as List<IdImage>
-                        )
-                    }
-                    in 35.0..40.0 -> {
-                        ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
-                    }
-                    else -> {
-                        ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
-                    }
-                }
-            }
 
-        binding.clothes.adapter = selectedClothAdapter
+
+             val selectedClothAdapter = if (currentCode >= 4000) {
+                 when (currentCode) {
+                     in 4000..4201 -> {
+                         ClotheAdpt(dataSource.rainClothe.random() as List<IdImage>)
+                     }
+                     else -> {
+                         ClotheAdpt(dataSource.rainClothe.random() as List<IdImage>)
+                     }
+                 }
+             } else {
+                 when (temperature) {
+                     in 10.0..35.0 -> {
+                         ClotheAdpt(
+                             dataSource.winterClothe.random() as List<IdImage>
+                         )
+                     }
+                     in 35.0..40.0 -> {
+                         ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
+                     }
+                     else -> {
+                         ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
+                     }
+                 }
+             }
+
+             binding.clothes.adapter = selectedClothAdapter
+         }
     }
 
     fun getCurrentDate(): String = SimpleDateFormat("dd MMM", Locale.getDefault()).format(Date())
@@ -127,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback{
             override fun onFailure(call: Call, e: java.io.IOException) {
+
             }
 
             @SuppressLint("SetTextI18n")
