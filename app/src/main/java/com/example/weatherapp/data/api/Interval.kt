@@ -1,5 +1,6 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.data.api
 
+import com.example.weatherapp.data.api.Values
 import com.google.gson.annotations.SerializedName
 
 data class Interval(

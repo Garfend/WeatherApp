@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/clothes"
@@ -13,10 +13,10 @@
         android:layout_marginHorizontal="@dimen/space_margin_meduim"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/space_margin_meduim"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView_loc_temp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:ignore="SpeakableTextPresentCheck"
         tools:itemCount="3" />
 
@@ -26,19 +26,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/temp"
-        android:textColor="@color/black"
+        style="@style/TextTitle"
         android:textSize="40sp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginStart="@dimen/text_meduim"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_wind"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="@dimen/space_margin_meduim"
-        android:layout_marginHorizontal="@dimen/space_margin_meduim"
+        style="@style/subCard"
         app:cardCornerRadius="@dimen/space_margin_small"
         app:layout_constraintBottom_toTopOf="@+id/cardView_cloud"
         app:layout_constraintEnd_toEndOf="parent">
@@ -47,19 +44,19 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imageView_wind_speed"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/wind_icon"
+                android:layout_width="@dimen/space_margin_large"
+                android:layout_height="@dimen/space_margin_large"
                 android:layout_marginStart="@dimen/space_margin_meduim"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/icon_wind"/>
             <TextView
                 android:id="@+id/textView_wind_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/temp"
-                android:textColor="@color/black"
+                style="@style/TextTitle"
                 android:textSize="@dimen/text_E_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,10 +68,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_cloud"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="@dimen/space_margin_meduim"
-        android:layout_marginHorizontal="@dimen/space_margin_meduim"
+        style="@style/subCard"
         app:cardCornerRadius="@dimen/space_margin_small"
         app:layout_constraintBottom_toTopOf="@+id/cardView_hum"
         app:layout_constraintEnd_toEndOf="parent">
@@ -83,10 +77,10 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imageView_cloud_coverage"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="@dimen/space_margin_large"
+                android:layout_height="@dimen/space_margin_large"
                 android:layout_marginStart="@dimen/space_margin_meduim"
-                android:src="@drawable/icon_cloudy"
+                android:src="@drawable/icon_cloud"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -95,9 +89,8 @@
                 android:id="@+id/textView_cloud_coverage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
                 android:text="@string/temp"
-                android:textColor="@color/black"
+                style="@style/TextTitle"
                 android:textSize="@dimen/text_E_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,11 +101,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_hum"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="@dimen/space_margin_large"
-        android:layout_marginHorizontal="@dimen/space_margin_meduim"
-        app:cardCornerRadius="@dimen/space_margin_small"
+        style="@style/subCard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -121,9 +110,9 @@
 
             <ImageView
                 android:id="@+id/imageView_humidty"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/water_icon"
+                android:layout_width="@dimen/space_margin_large"
+                android:layout_height="@dimen/space_margin_large"
+                android:src="@drawable/icon_humidity"
                 android:layout_marginStart="@dimen/space_margin_meduim"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -133,9 +122,8 @@
                 android:id="@+id/textView_humidity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
                 android:text="@string/temp"
-                android:textColor="@color/black"
+                style="@style/TextTitle"
                 android:textSize="@dimen/text_E_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -144,14 +132,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_loc_temp"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        app:cardElevation="0dp"
+        style="@style/mainCard"
+        app:cardElevation="@dimen/no_elevation"
         android:layout_marginHorizontal="@dimen/space_margin_meduim"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,8 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-32dp"
-                android:gravity="center"
-                android:textColor="@color/black"
+                style="@style/TextTitle"
                 android:text="@string/cairo"
                 android:textSize="@dimen/text_E_large"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -179,24 +162,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-32dp"
-                android:gravity="center"
                 android:text="@string/egypts"
                 android:textSize="@dimen/text_meduim"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/city"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.517" />
+                app:layout_constraintVertical_bias="0.5178" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/space_margin_small"
                 android:text="@string/date"
-                android:textColor="@color/black"
+                style="@style/TextTitle"
                 android:textSize="@dimen/text_large"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="@dimen/space_margin_E_small"
                 app:layout_constraintStart_toEndOf="@+id/time"
                 app:layout_constraintTop_toBottomOf="@+id/city" />
 
@@ -204,23 +185,22 @@
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/space_margin_small"
                 android:text="@string/time"
                 android:textSize="@dimen/text_large"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/city" />
+                app:layout_constraintTop_toBottomOf="@+id/city"
+                style="@style/TextTitle"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rain_image_large_card"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="@dimen/space_margin_large"
+                android:layout_height="@dimen/space_margin_large"
                 android:layout_marginStart="@dimen/space_margin_E_large"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/country"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:itemCount="1" />
 
@@ -231,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/weather_condition_today"
-                android:textColor="@color/black"
+                style="@style/TextTitle"
                 android:textSize="@dimen/text_meduim"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

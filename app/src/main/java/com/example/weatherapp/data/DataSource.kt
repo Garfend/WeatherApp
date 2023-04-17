@@ -44,17 +44,17 @@ class DataSource {
 
 
     val rainIcon:List<IdImage> = listOf(
-        IdImage(R.drawable.rain_icon))
+        IdImage(R.drawable.icon_rain))
     val sunnyIcon:List<IdImage> = listOf(
-        IdImage(R.drawable.sun_icon))
+        IdImage(R.drawable.icon_sun))
     val windIcon:List<IdImage> = listOf(
-        IdImage(R.drawable.wind_icon))
+        IdImage(R.drawable.icon_wind))
     val snowIcon:List<IdImage> = listOf(
         IdImage(R.drawable.icon_snow))
     val cloudyIcon:List<IdImage> = listOf(
-        IdImage(R.drawable.icon_cloudy))
+        IdImage(R.drawable.icon_cloud))
     val freezeIcon:List<IdImage> = listOf(
-        IdImage(R.drawable.freeze_icon))
+        IdImage(R.drawable.icon_freeze))
     val thunderIcon:List<IdImage> = listOf(
-        IdImage(R.drawable.thunder_icon))
+        IdImage(R.drawable.icon_thunder))
 }

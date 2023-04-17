@@ -13,4 +13,31 @@
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="TextTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="mainCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">160dp</item>
+        <item name="android:backgroundTint">@color/card_bg</item>
+    </style>
+
+    <style name="subCard">
+        <item name="android:layout_width">180dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">@dimen/space_margin_meduim</item>
+        <item name="android:backgroundTint">@color/card_bg</item>
+    </style>
+
+    <style name="textSubCard">
+        <item name="android:layout_width">180dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">@dimen/space_margin_meduim</item>
+        <item name="android:backgroundTint">@color/card_bg</item>
+    </style>
+
+
 </resources>

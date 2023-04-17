@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:backgroundTint="@color/card_bg"
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/rain_image_large_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/rain_icon" />
+        android:src="@drawable/icon_rain" />
 
 </androidx.cardview.widget.CardView>

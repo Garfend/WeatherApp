@@ -1,8 +1,9 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.data.api
 
+import com.example.weatherapp.data.api.Timeline
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class DataTomorrow(
     @SerializedName("timelines") val timelines: List<Timeline>
 
 )

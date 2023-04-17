@@ -1,14 +1,15 @@
-package com.example.weatherapp
+package com.example.weatherapp.ui
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.weatherapp.adapters.ClotheAdpt
+import com.example.weatherapp.adapters.WeatherAdpt
 import com.example.weatherapp.data.*
-
+import com.example.weatherapp.data.api.NationalReaponse
 import okhttp3.*
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.utils.PrefsUtil
-import com.example.weatherapp.utils.PrefsUtil.date
 import com.google.gson.Gson
 import okhttp3.logging.HttpLoggingInterceptor
 import java.text.SimpleDateFormat
@@ -24,16 +25,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         onSet()
-
     }
 
     private fun onSet(){
         prefsUtils()
         makeRequestUsingOKHttp()
     }
-
 
     private fun prefsUtils(){
         PrefsUtil.initPrefsUtil(this)
@@ -44,8 +42,8 @@ class MainActivity : AppCompatActivity() {
         val selectedWindAdpt = when (currentCode)
         {
             in 0..1100 ->  WeatherAdpt(dataSource.sunnyIcon)
-            in 1101..2100 ->WeatherAdpt(dataSource.cloudyIcon)
-            in 4000..4201 ->WeatherAdpt(dataSource.rainIcon)
+            in 1101..2100 -> WeatherAdpt(dataSource.cloudyIcon)
+            in 4000..4201 -> WeatherAdpt(dataSource.rainIcon)
             in 5000..5101 -> WeatherAdpt(dataSource.snowIcon)
             in 6000..7102 -> WeatherAdpt(dataSource.freezeIcon)
             else -> WeatherAdpt(dataSource.thunderIcon)
@@ -130,7 +128,6 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call, e: java.io.IOException) {
 
             }
-
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call, response: Response) {
                 response.body.string().let {jsonString ->

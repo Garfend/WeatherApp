@@ -1,10 +1,10 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.data.api
 
-import com.example.weatherapp.utils.PrefsUtil.date
+import com.example.weatherapp.data.api.DataTomorrow
 import com.google.gson.annotations.SerializedName
 
 data class NationalReaponse(
-    @SerializedName("data")val data: Data
+    @SerializedName("data")val data: DataTomorrow
 )
 {   fun getStartTime(): String = data.timelines[0].startTime
     fun getTemperature(): Double = data.timelines[0].intervals[0].values.temperature

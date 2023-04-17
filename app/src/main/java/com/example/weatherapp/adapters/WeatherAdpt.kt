@@ -1,9 +1,10 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.weatherapp.data.IdImage
 
 import com.example.weatherapp.databinding.ItemImageWindBinding
 
@@ -20,7 +21,7 @@ class WeatherAdpt (private val windList:List<IdImage>) : RecyclerView.Adapter<We
         override fun getItemCount(): Int = windList.size
 
         class WindViewHolder(private val binding: ItemImageWindBinding) : RecyclerView.ViewHolder(binding.root) {
-            fun getImage(cloth:IdImage){
+            fun getImage(cloth: IdImage){
                 binding.rainImageLargeCard.setImageResource(cloth.imageSrc)
             }
         }

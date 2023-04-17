@@ -10,4 +10,6 @@
     <color name="white_bg">#Fafafafa</color>
     <color name="light_blue">#618BBC</color>
     <color name="card_light_blue">#00A7EF</color>
+    <color name="card_bg">#FFFFFFFF</color>
+    <color name="weather_color">#121212</color>
 </resources>

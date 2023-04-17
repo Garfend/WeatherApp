@@ -11,4 +11,6 @@
     <dimen name="space_margin_meduim">16dp</dimen>
     <dimen name="space_margin_large">32dp</dimen>
     <dimen name="space_margin_E_large">40dp</dimen>
+    <dimen name="space_margin_E_small">4dp</dimen>
+    <dimen name="no_elevation">0dp</dimen>
 </resources>
