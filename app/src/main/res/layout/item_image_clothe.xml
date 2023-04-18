@@ -3,13 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:backgroundTint="@color/card_bg"
-    android:animateLayoutChanges="true"
-    android:animationCache="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/clothes_drip"
-        android:stateListAnimator="@android:anim/slide_in_left"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/guko_drip"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="card_bg">#121212</color>
-    <color name="weather_color">#FFFFFFFF</color>
+    <color name="weather_color">#fafafa</color>
+    <color name="subcard_bg">#272727</color>
 
 </resources>

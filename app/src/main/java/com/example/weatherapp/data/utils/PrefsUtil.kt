@@ -1,4 +1,4 @@
-package com.example.weatherapp.utils
+package com.example.weatherapp.data.utils
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,7 +11,7 @@ private var sharedPrefs: SharedPreferences? = null
     private val myDataKey = "MY_DATA"
 
     fun initPrefsUtil(context: Context){
-        sharedPrefs=context.getSharedPreferences(SHARE_PREFS_NAME,Context.MODE_PRIVATE)
+        sharedPrefs =context.getSharedPreferences(SHARE_PREFS_NAME,Context.MODE_PRIVATE)
     }
 
     var clothe: Int

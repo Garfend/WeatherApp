@@ -102,6 +102,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_hum"
         style="@style/subCard"
+        app:cardCornerRadius="@dimen/space_margin_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout

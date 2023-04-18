@@ -7,5 +7,5 @@ data class Values(
     @SerializedName("weatherCode") val weatherCode: Int,
     @SerializedName("humidity")	val humidity: Double,
     @SerializedName("windSpeed")	val windSpeed: Double,
-    @SerializedName("cloudCover")	val cloudCover: Double
+    @SerializedName("cloudCover")	val cloudCover: Float
 )

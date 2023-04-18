@@ -9,7 +9,7 @@ import com.example.weatherapp.data.*
 import com.example.weatherapp.data.api.NationalReaponse
 import okhttp3.*
 import com.example.weatherapp.databinding.ActivityMainBinding
-import com.example.weatherapp.utils.PrefsUtil
+import com.example.weatherapp.data.utils.PrefsUtil
 import com.google.gson.Gson
 import okhttp3.logging.HttpLoggingInterceptor
 import java.text.SimpleDateFormat
@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
                                currentDay:String) {
          if (currentDay == PrefsUtil.date) {
 
-
              val selectedClothAdapter = if (currentCode >= 4000) {
                  when (currentCode) {
                      in 4000..4201 -> {
@@ -68,12 +67,11 @@ class MainActivity : AppCompatActivity() {
                  }
              } else {
                  when (temperature) {
-                     in 10.0..35.0 -> {
-                         ClotheAdpt(
-                             dataSource.winterClothe.random() as List<IdImage>
+                     in 10.0..25.0 -> {
+                         ClotheAdpt(dataSource.winterClothe.random() as List<IdImage>
                          )
                      }
-                     in 35.0..40.0 -> {
+                     in 26.0..40.0 -> {
                          ClotheAdpt(dataSource.sunnyClothes.random() as List<IdImage>)
                      }
                      else -> {
@@ -84,6 +82,7 @@ class MainActivity : AppCompatActivity() {
 
              binding.clothes.adapter = selectedClothAdapter
          }
+
     }
 
     fun getCurrentDate(): String = SimpleDateFormat("dd MMM", Locale.getDefault()).format(Date())
@@ -100,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI(temp: Double,
                          hum:Double,
                          win:Double,
-                         clou: Double,
+                         clou: Float,
                          time: String,
                          date: String)
     {
@@ -134,8 +133,8 @@ class MainActivity : AppCompatActivity() {
                         val result = Gson().fromJson(jsonString, NationalReaponse::class.java)
                     val temp = result.getTemperature()
                     val hum = result.getHumidity()
-                    val clou = result.getWindSpeed()
-                    val win = result.getCloudCover()
+                    val clou = result.getCloudCover()
+                    val win = result.getWindSpeed()
                     val wCode = result.getWeatherCode().toString()
                     val date = getCurrentDate()
                     val time = getCurrentTime()

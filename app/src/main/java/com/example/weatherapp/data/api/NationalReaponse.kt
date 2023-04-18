@@ -11,5 +11,5 @@ data class NationalReaponse(
     fun getWeatherCode(): Int = data.timelines[0].intervals[0].values.weatherCode
     fun getHumidity(): Double = data.timelines[0].intervals[0].values.humidity
     fun getWindSpeed(): Double = data.timelines[0].intervals[0].values.windSpeed
-    fun getCloudCover(): Double = data.timelines[0].intervals[0].values.cloudCover
+    fun getCloudCover(): Float = data.timelines[0].intervals[0].values.cloudCover
 }
